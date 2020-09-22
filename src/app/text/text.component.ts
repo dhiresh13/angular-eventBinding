@@ -2,13 +2,27 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-text",
-  template: `<div class="flex">
+  template: `<div>
     <input [(ngModel)]="text" (ngModelChange)="onChange($event)" type="text" />
-    <br />
-    <button (click)="onClick()">Save</button><br />
-    <h1>{{ demo }}</h1>
+    <button (click)="onClick()">Save</button>
+    <span>{{ demo }}</span>
   </div>`,
-  styleUrls: ["./text.component.scss"],
+  styles: [
+    `
+      div {
+        display: flex;
+        justify-content: center;
+      }
+
+      button {
+        margin-left: 10px;
+      }
+
+      span {
+        margin-left: 10px;
+      }
+    `,
+  ],
 })
 export class TextComponent implements OnInit {
   public text = "";
